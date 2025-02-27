@@ -63,7 +63,7 @@ const Login = () => {
       <div style={{ width: '400px', maxWidth: '100%' }}>
         <div className="card">
           <h1 style={{ color: '#1877f2', fontWeight: 'bold', fontSize: '2rem', textAlign: 'center', marginBottom: '20px' }}>
-            SocialApp
+            ZX
           </h1>
           
           <div className="flex mb-20">
@@ -134,7 +134,7 @@ const Login = () => {
               </button>
               
               <p className="text-gray text-sm mt-10" style={{ textAlign: 'center' }}>
-                For demo purposes, use any username from the sample users (johndoe, janesmith, robertj) with password "password"
+                Logging in easy... Remembering your password is the real Challenge.
               </p>
             </form>
           ) : (

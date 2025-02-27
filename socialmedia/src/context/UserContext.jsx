@@ -8,39 +8,39 @@ export const UserProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState({
     id: '1',
-    name: 'John Doe',
-    username: 'johndoe',
-    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-    bio: 'Software developer and tech enthusiast',
-    followers: 245,
+    name: 'Ramprasath K',
+    username: 'Ramprasath',
+    avatar: 'https://cdn.pixabay.com/photo/2021/11/12/14/33/captain-america-6789190_1280.jpg',
+    bio: 'Photographer and Blogger',
+    followers: 506,
     following: 120
   })
 
   const [users, setUsers] = useState([
     {
       id: '1',
-      name: 'John Doe',
-      username: 'johndoe',
-      avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-      bio: 'Software developer and tech enthusiast',
-      followers: 245,
+      name: 'Ramprasath K',
+      username: 'Ramprasath',
+      avatar: 'https://cdn.pixabay.com/photo/2021/11/12/14/33/captain-america-6789190_1280.jpg',
+      bio: 'Photographer and Blogger',
+      followers: 506,
       following: 120
     },
     {
       id: '2',
-      name: 'Jane Smith',
-      username: 'janesmith',
-      avatar: 'https://randomuser.me/api/portraits/women/2.jpg',
+      name: 'Sanjay T',
+      username: 'Sanjay T',
+      avatar: 'https://cdn.pixabay.com/photo/2023/08/01/12/31/ai-generated-8162871_1280.jpg',
       bio: 'Digital marketer and content creator',
       followers: 532,
       following: 250
     },
     {
       id: '3',
-      name: 'Robert Johnson',
-      username: 'robertj',
-      avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
-      bio: 'Photographer and travel blogger',
+      name: 'Rijowin Robert',
+      username: 'Rijowin',
+      avatar: 'https://cdn.pixabay.com/photo/2021/07/20/14/59/iron-man-6480952_1280.jpg',
+      bio: 'Photographer and Software Developer',
       followers: 1024,
       following: 350
     }

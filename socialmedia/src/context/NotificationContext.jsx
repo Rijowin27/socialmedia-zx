@@ -9,9 +9,9 @@ export const NotificationProvider = ({ children }) => {
   const [notifications, setNotifications] = useState([
     {
       id: '1',
-      userId: '2',
+      userId: '1',
       type: 'like',
-      content: 'Jane Smith liked your post',
+      content: 'Ramprasath liked your post',
       read: false,
       timestamp: '2023-05-15T14:30:00Z',
       relatedId: '3' // Post ID
@@ -20,7 +20,7 @@ export const NotificationProvider = ({ children }) => {
       id: '2',
       userId: '3',
       type: 'comment',
-      content: 'Robert Johnson commented on your post',
+      content: 'Rijowin Robert commented on your post',
       read: true,
       timestamp: '2023-05-14T19:20:00Z',
       relatedId: '3' // Post ID
@@ -29,7 +29,7 @@ export const NotificationProvider = ({ children }) => {
       id: '3',
       userId: '2',
       type: 'follow',
-      content: 'Jane Smith started following you',
+      content: 'Sanjay T started following you',
       read: false,
       timestamp: '2023-05-13T10:15:00Z',
       relatedId: '2' // User ID
