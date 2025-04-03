@@ -1,61 +1,34 @@
-import { useState } from 'react'
-import { useUser } from '../context/UserContext'
-import { usePost } from '../context/PostContext'
+import { useState } from 'react';
+import { useUser } from '../context/UserContext';
+import axios from 'axios'; // Import axios for making HTTP requests
 
 const CreatePost = () => {
-  const [content, setContent] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const { currentUser } = useUser()
-  const { addPost } = usePost()
-  
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    if (content.trim()) {
-      addPost({
-        userId: currentUser.id,
-        content,
-        image: imageUrl.trim() || null
-      })
-      
-      setContent('')
-      setImageUrl('')
-    }
-  }
-  
-  return (
-    <div className="card">
-      <form onSubmit={handleSubmit}>
-        <div className="flex align-center gap-10 mb-10">
-          <img src={currentUser.avatar} alt={currentUser.name} className="avatar" />
-          <textarea
-            className="textarea"
-            placeholder={`${currentUser.name.split(' ')[0]}?`}
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </div>
-        
-        <div className="mb-10">
-          <input
-            type="text"
-            className="input"
-            placeholder="Image URL (optional)"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-          />
-        </div>
-        
-        <button 
-          type="submit" 
-          disabled={!content.trim()}
-          style={{ width: '100%' }}
-        >
-          Post
-        </button>
-      </form>
-    </div>
-  )
-}
+  const [errorMessage, setErrorMessage] = useState('');
+  const { user } = useUser();
 
-export default CreatePost
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const content = e.target.elements.content.value;
+
+    try {
+      // Send a POST request to the new backend API
+      await axios.post('/api/posts', {
+        userId: user.id, // Include user ID
+        content: content,
+      });
+      e.target.reset();
+    } catch (error) {
+      setErrorMessage('Failed to create post');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <textarea name="content" required />
+      <button type="submit">Create Post</button>
+      {errorMessage && <p>{errorMessage}</p>}
+    </form>
+  );
+};
+
+export default CreatePost;

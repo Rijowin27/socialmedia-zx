@@ -20,7 +20,7 @@ const Navbar = () => {
         
         <div className="flex align-center gap-20">
           <Link to="/">Home</Link>
-            
+          
           <Link to="/notifications" className="flex align-center gap-5" style={{ position: 'relative' }}>
             Notifications
             {unreadNotifications > 0 && (
