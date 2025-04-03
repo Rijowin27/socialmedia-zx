@@ -1,15 +1,24 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
 import { useNotification } from '../context/NotificationContext'
 import { useMessage } from '../context/MessageContext'
 
 const Navbar = () => {
-  const { currentUser, logout } = useUser()
+  const { currentUser, setCurrentUser } = useUser() // Ensure setCurrentUser is available
   const { getUnreadCount: getUnreadNotifications } = useNotification()
   const { getUnreadCount: getUnreadMessages } = useMessage()
 
+  const navigate = useNavigate()
+
   const unreadNotifications = getUnreadNotifications()
   const unreadMessages = getUnreadMessages()
+
+  // ✅ Logout function: Clears token & navigates to login page
+  const handleLogout = () => {
+    localStorage.removeItem("token") // Remove token
+    setCurrentUser(null) // Clear user state if applicable
+    navigate("/login", { replace: true }) // Redirect to login page
+  }
 
   return (
     <nav className="card" style={{ marginBottom: '20px', position: 'sticky', top: 0, zIndex: 100 }}>
@@ -71,7 +80,7 @@ const Navbar = () => {
           </Link>
           
           <button 
-            onClick={logout} 
+            onClick={handleLogout} 
             className="btn-secondary"
             style={{ padding: '6px 12px' }}
           >
